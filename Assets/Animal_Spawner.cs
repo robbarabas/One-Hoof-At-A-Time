@@ -7,17 +7,19 @@ public class Animal_Spawner : MonoBehaviour
     public GameObject Animals;
     public Text Text_List;
     public GameObject UI_List_Text;
-
     public GameObject[] All_Animals = new GameObject[100];
+    public GameObject Next_Button;
     public float SpawnInterval = 1;
     public float[,] Genomes = new float[100,5];
     public float[] Fitnes = new float[100];
     public float Animals_Timer;
-    public float Timer_Start;
+    public float Time_Start;
+    public float Next_Gen_Timer ;
+    public float destroy_time=15;
     // Start is called before the first frame update
     void Start()
     {
-        Timer_Start=Time.time;
+        Time_Start=Time.time;
         for (int i = 0; i < 5; i++)
 
             for (int index = 0; index < 5; index++)
@@ -34,7 +36,7 @@ public class Animal_Spawner : MonoBehaviour
         {
             Animals.GetComponent<test_transfer>().set_genome(Genomes[i,0], Genomes[i, 1], Genomes[i, 2], Genomes[i, 3], Genomes[i, 4],i);
           
-            Vector3 location_rand = Vector3.one * 40;
+            Vector3 location_rand = Vector3.one * 100;
 
   
             
@@ -50,10 +52,12 @@ public class Animal_Spawner : MonoBehaviour
     }
     void Update()
     {
-        if (Animals_Timer < Timer_Start + 15)
+
+        if (Time.time > destroy_time + Time_Start) 
+        { Next_Button.SetActive(true); }
         {
             Text_List.text = "";
-            Animals_Timer = Time.time;
+
             for (int i = 0; i < 5; i++)
                 Text_List.text += "ID=" + i.ToString() + " score:" + All_Animals[i].GetComponent<test_transfer>().get_food().ToString() + System.Environment.NewLine;
         }

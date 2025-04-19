@@ -14,7 +14,7 @@ public class Spawn_Plants : MonoBehaviour
     {
         for (int i = 0; i < 50; i++)
         {
-            Vector3 location_rand = Vector3.one * 40;
+            Vector3 location_rand = Vector3.one * 100;
 
 
             location_rand.y = 0;

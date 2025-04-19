@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class test_transfer : MonoBehaviour
 {
-    
+    public float destroy_time;
     public int ID;
     public float speed;
     public float vision_size;
@@ -20,6 +20,7 @@ public class test_transfer : MonoBehaviour
     
     void Start()
     {
+        // destroy_time =Animal_Spawner.destory_time;
         Time_start = Time.time;
         var cubeRenderer =GetComponent<Renderer>();
 
@@ -67,7 +68,7 @@ public class test_transfer : MonoBehaviour
     void Update()
     {
 
-        if (Time.time > 30+Time_start) { Destroy(this.gameObject); }
+        if (Time.time > destroy_time+Time_start) { Destroy(this.gameObject); }
 
     }
 

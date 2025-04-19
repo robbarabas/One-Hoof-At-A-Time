@@ -60,7 +60,7 @@ public class Vision : MonoBehaviour
         {
 
             //location condition (Temporary)
-            if (Rand.x + transform.parent.position.x > 0 && Rand.x + transform.parent.position.x < 40 && Rand.z + transform.parent.position.z > 0 && Rand.z + transform.parent.position.z < 40)
+            if (Rand.x + transform.parent.position.x > 0 && Rand.x + transform.parent.position.x < 100 && Rand.z + transform.parent.position.z > 0 && Rand.z + transform.parent.position.z < 100)
 
             {
                 transform.parent.position += Rand * speed * Time.deltaTime;
